@@ -10,7 +10,7 @@
 ### Above combination will ignore all files without extension ###
 
 # Visual Studio Code
-.vscode
+**/.vscode
 **/tempCodeRunnerFile*
 
 # template provided by github
