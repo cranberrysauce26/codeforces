@@ -1,14 +1,18 @@
-/*input
-
-*/
 #include <bits/stdc++.h>
+
+#ifdef LOCAL
+#define DEBUG(fmt, ...) printf(fmt, ##_VA_ARGS)
+#else
+#define DEBUG(fmt, ...)
+#endif
+
 using namespace std;
-#define sz(v) ((int)(v).size())
-#define all(v) begin(v), end(v)
+#define szof(v) ((int)(v).size())
+#define allof(v) begin(v), end(v)
 typedef long long ll;
 typedef pair<int,int> ii;
 typedef pair<ll, ll> pll;
 
 int main() {
-	// freopen("data.txt", "r", stdin);
+	freopen("data.txt", "r", stdin);
 }
