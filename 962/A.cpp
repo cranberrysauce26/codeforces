@@ -1,4 +1,3 @@
-#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define LOCAL
 #ifdef LOCAL
@@ -13,10 +12,22 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
+const int MAXN = 2e5 + 5;
+int n;
+ll a[MAXN], sum[MAXN];
 
 void mmain() {
-    
+    scanf("%d", &n);
+    for (int i = 1; i <= n; ++i) {
+        scanf("%lld", a + i);
+        sum[i] = a[i] + sum[i - 1];
+    }
+    for (int i = 1; i <= n; ++i) {
+        if (sum[i] >= sum[n]-sum[i]) {
+            printf("%d\n", i);
+            return;
+        }
+    }
 }
 
 int main() {

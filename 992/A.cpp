@@ -1,4 +1,3 @@
-#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define LOCAL
 #ifdef LOCAL
@@ -13,10 +12,15 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
 
 void mmain() {
-    
+    int n; scanf("%d", &n);
+    set<int> s;
+    for (int i = 0; i < n; ++i) {
+        int a; scanf("%d", &a);
+        if(a!=0) s.insert(a);
+    }
+    cout << szof(s) << "\n";
 }
 
 int main() {

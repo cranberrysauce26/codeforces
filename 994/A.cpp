@@ -1,4 +1,3 @@
-#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define LOCAL
 #ifdef LOCAL
@@ -13,10 +12,26 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
+
+int seq[100];
+bool isf[100];
+int n, m;
 
 void mmain() {
-    
+    scanf("%d%d", &n, &m);
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", seq+i);
+    }
+    for (int i = 0; i < m; ++i) {
+        int x; scanf("%d", &x);
+        isf[x] = true;
+    }
+    for (int i = 0; i < n; ++i) {
+        if (isf[seq[i]]) {
+            printf("%d ", seq[i]);
+        }
+    }
+    printf("\n");
 }
 
 int main() {

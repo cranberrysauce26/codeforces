@@ -1,4 +1,3 @@
-#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define LOCAL
 #ifdef LOCAL
@@ -13,10 +12,38 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
+
+ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+
+inline void simplify(ll &p, ll &q) {
+    p %= q;
+    ll d = gcd(p, q);
+    p /= d;
+    q /= d;
+}
+
+bool finite(ll p, ll q, ll b) {
+    simplify(p, q);
+    ll d = gcd(q, b);
+    while (d != 1) {
+        q /= d;
+        d = gcd(q, d);
+    }
+    return q==1;
+}
 
 void mmain() {
-    
+    int n;
+    scanf("%d", &n);
+    while (n--) {
+        ll p, q, b;
+        scanf("%lld %lld %lld", &p, &q, &b);
+        if (finite(p, q, b)) {
+            printf("Finite\n");
+        } else {
+            printf("Infinite\n");
+        }
+    }
 }
 
 int main() {

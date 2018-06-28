@@ -1,4 +1,3 @@
-#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define LOCAL
 #ifdef LOCAL
@@ -13,7 +12,6 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
 
 void mmain() {
     

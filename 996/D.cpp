@@ -14,9 +14,25 @@ typedef long long ll;
 typedef pair<int, int> ii;
 typedef pair<ll, ll> pll;
 typedef vector<int> vi;
-
+const int MAXN = 105;
+int n, a[2 * MAXN];
 void mmain() {
-    
+    scanf("%d", &n);
+    for (int i = 1; i <= 2 * n; ++i) {
+        scanf("%d", a + i);
+    }
+    int cnt = 0;
+    for (int i = 1; i <= 2 * n; i += 2) {
+        int j = i + 1;
+        while (j <= 2 * n && a[j] != a[i]) ++j;
+        DEBUG("i = %d, j = %d, colour = %d\n", i, j, a[i]);
+        for (int k = j; k > i + 1; --k) {
+            swap(a[k], a[k - 1]);
+            ++cnt;
+            DEBUG(" incremented cnt = %d\n", cnt);
+        }
+    }
+    printf("%d\n", cnt);
 }
 
 int main() {
