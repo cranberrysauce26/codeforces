@@ -10,13 +10,18 @@
 using namespace std;
 #define szof(v) ((int)(v).size())
 #define allof(v) begin(v), end(v)
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef pair<ll, ll> pll;
-typedef vector<int> vi;
+using ll = long long;
+using ii = pair<int, int>;
+using vi = vector<int>;
+template <typename T>
+using minheap = priority_queue<T, vector<T>, greater<T>>;
+template <typename T>
+using maxheap = priority_queue<T>;
 
 void mmain() {
-    
+    // Reread the problem statement!
+    // Check base cases! Does it work for n = 1?
+    // Check for integer overflow! Are you using int instead of ll?
 }
 
 int main() {
