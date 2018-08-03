@@ -13,7 +13,6 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 using vi = vector<int>;
-using vii = vector<ii>;
 template <typename T>
 using minheap = priority_queue<T, vector<T>, greater<T>>;
 template <typename T>
@@ -23,6 +22,28 @@ void mmain() {
     // Reread the problem statement!
     // Check base cases! Does it work for n = 1?
     // Check for integer overflow! Are you using int instead of ll?
+    int n;
+    scanf("%d", &n);
+    ll d;
+    scanf("%lld", &d);
+    vector<ll> x(n);
+    for (int i = 0; i < n; ++i) scanf("%lld", &x[i]);
+    vector<ll> interesting;
+    for (ll p : x) {
+        interesting.push_back(p + d);
+        interesting.push_back(p - d);
+    }
+    sort(allof(interesting));
+    interesting.erase(unique(allof(interesting)), end(interesting));
+    ll cnt = 0;
+    for (ll p : interesting) {
+        bool works = true;
+        for (int i = 0; i < n; ++i) {
+            if (abs(p - x[i]) < d) works = false;
+        }
+        if (works) ++cnt;
+    }
+    cout << cnt << "\n";
 }
 
 int main() {

@@ -10,43 +10,19 @@
 using namespace std;
 #define szof(v) ((int)(v).size())
 #define allof(v) begin(v), end(v)
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef pair<ll, ll> pll;
-typedef vector<int> vi;
-const int MAXN = 2e5 + 5;
-int n;
-ll freq[MAXN];
+using ll = long long;
+using ii = pair<int, int>;
+using vi = vector<int>;
+using vii = vector<ii>;
+template <typename T>
+using minheap = priority_queue<T, vector<T>, greater<T>>;
+template <typename T>
+using maxheap = priority_queue<T>;
 
 void mmain() {
-    scanf("%d", &n);
-    vector<pair<ll, int>> events;
-    for (int i = 0; i < n; ++i) {
-        // scanf("%lld %lld", &I[i].first, &I[i].second);
-        ll start, end;
-        scanf("%lld %lld", &start, &end);
-        events.push_back({start, 1});
-        events.push_back({end+1, -1});
-    }
-    sort(allof(events));
-    int cur = 0;
-    ll lastx = -1;
-    for (auto e : events) {
-        if (lastx != -1) {
-            freq[cur] += e.first - lastx;
-        }
-        cur += e.second;
-        lastx = e.first;
-    }
-  
-    for (int i = 1; i <= n; ++i) {
-        printf("%lld", freq[i]);
-        if (i != n) {
-            printf(" ");
-        } else {
-            printf("\n");
-        }
-    }
+    // Reread the problem statement!
+    // Check base cases! Does it work for n = 1?
+    // Check for integer overflow! Are you using int instead of ll?
 }
 
 int main() {

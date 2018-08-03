@@ -10,48 +10,19 @@
 using namespace std;
 #define szof(v) ((int)(v).size())
 #define allof(v) begin(v), end(v)
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef pair<ll, ll> pll;
-typedef vector<int> vi;
-const int MAXN = 1e5 + 5;
-int n;
-ll m, a[MAXN];
-ll segsum[MAXN];
-ll gapsum(int i) { return a[i] - segsum[i]; }
+using ll = long long;
+using ii = pair<int, int>;
+using vi = vector<int>;
+using vii = vector<ii>;
+template <typename T>
+using minheap = priority_queue<T, vector<T>, greater<T>>;
+template <typename T>
+using maxheap = priority_queue<T>;
 
 void mmain() {
-    scanf("%d %lld", &n, &m);
-    for (int i = 1; i <= n; ++i) {
-        scanf("%lld", a + i);
-    }
-    a[n + 1] = m;
-    for (int i = 1; i <= n+1; i += 2) {
-        segsum[i] = a[i] - a[i - 1] + segsum[i - 1];
-        segsum[i+1] = segsum[i];
-        DEBUG("segsum[%d] = %lld, segsum[%d] = %lld\n", i, segsum[i], i+1, segsum[i]);
-    }
-
-    ll ans = segsum[n+1];
-    DEBUG("initial ans = %lld\n", ans);
-    for (int i = 0; i <= n; i += 2) {
-        // try at beginning of a[i]
-
-        if (a[i] + 1 == a[i + 1]) continue;
-
-        ll test1 = segsum[i] + (a[i + 1] - a[i] - 1) + gapsum(n + 1) - gapsum(i+1);
-        DEBUG("i = %d, test1 = %lld\n", i, test1);
-        // ll test2 = segsum[i] + (a[i+1]-)
-        ans = max(ans, test1);
-    }
-    for (int i = 1; i <= n; i += 2) {
-        if (a[i] + 1 == a[i + 1]) continue;
-        ll test2 = segsum[i] + (a[i + 1] - a[i] - 1) + gapsum(n + 1) - gapsum(i+1);
-        DEBUG("i = %d, test2 = %lld\n", i, test2);
-        ans = max(ans, test2);
-    }
-
-    printf("%lld\n", ans);
+    // Reread the problem statement!
+    // Check base cases! Does it work for n = 1?
+    // Check for integer overflow! Are you using int instead of ll?
 }
 
 int main() {

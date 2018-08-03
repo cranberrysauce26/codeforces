@@ -13,16 +13,42 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 using vi = vector<int>;
-using vii = vector<ii>;
 template <typename T>
 using minheap = priority_queue<T, vector<T>, greater<T>>;
 template <typename T>
 using maxheap = priority_queue<T>;
+const int MAXN = 3e5 + 5;
+int n, a[MAXN];
 
 void mmain() {
-    // Reread the problem statement!
-    // Check base cases! Does it work for n = 1?
-    // Check for integer overflow! Are you using int instead of ll?
+    ll x, y;
+    scanf("%d%lld%lld", &n, &x, &y);
+    a[0] = 1;
+    int nregions = 0;
+    for (int i = 1; i <= n; ++i) {
+        char c;
+        scanf(" %c", &c);
+        a[i] = c == '1' ? 1 : 0;
+        DEBUG("a[%d] = %d, a[i-1] = %d\n", i, a[i], a[i - 1]);
+        if (a[i] == 0 && a[i - 1] == 1) {
+            ++nregions;
+        }
+    }
+    DEBUG("nregions = %d\n", nregions);
+    if (nregions == 0) {
+        printf("0\n");
+        return;
+    }
+    ll ans;
+    if (y <= x) {
+        // just flip everything
+        ans = y * nregions;
+    } else {
+        // reverse
+        ans = x * (nregions - 1) + y;
+    }
+
+    printf("%lld\n", ans);
 }
 
 int main() {

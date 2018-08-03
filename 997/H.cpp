@@ -13,17 +13,12 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 using vi = vector<int>;
-using vii = vector<ii>;
 template <typename T>
 using minheap = priority_queue<T, vector<T>, greater<T>>;
 template <typename T>
 using maxheap = priority_queue<T>;
 
-void mmain() {
-    // Reread the problem statement!
-    // Check base cases! Does it work for n = 1?
-    // Check for integer overflow! Are you using int instead of ll?
-}
+void mmain() {}
 
 int main() {
 #ifdef LOCAL

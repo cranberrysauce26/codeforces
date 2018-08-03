@@ -13,13 +13,48 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 using vi = vector<int>;
-using vii = vector<ii>;
 template <typename T>
 using minheap = priority_queue<T, vector<T>, greater<T>>;
 template <typename T>
 using maxheap = priority_queue<T>;
 
+int ntimes = 0;
+
+inline int ask(int y) {
+    ++ntimes;
+    assert(ntimes <= 60);
+    printf("%d\n", y);
+    fflush(stdout);
+    int ans;
+    scanf("%d", &ans);
+    if (ans == 0 || ans == -2) {
+        exit(0);
+    }
+    assert(ans == -1 || ans == 1);
+    return ans;
+}
+
 void mmain() {
+    int n, m;
+    scanf("%d%d", &m, &n);
+    vi truth(n);
+    for (int i = 0; i < n; ++i) {
+        truth[i] = ask(1);
+    }
+    int lo = 1, hi = m, i = 0;
+    while (lo < hi) {
+        int mid = (lo + hi) / 2;
+        int ans = ask(mid);
+        ans *= truth[i];
+        if (ans == 1) {
+            hi = mid - 1;
+        } else {
+            lo = mid + 1;
+        }
+        i = (i + 1) % n;
+    }
+    assert(lo == hi);
+    assert(ask(lo) == 0);
     // Reread the problem statement!
     // Check base cases! Does it work for n = 1?
     // Check for integer overflow! Are you using int instead of ll?

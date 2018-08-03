@@ -13,13 +13,36 @@ using namespace std;
 using ll = long long;
 using ii = pair<int, int>;
 using vi = vector<int>;
-using vii = vector<ii>;
 template <typename T>
 using minheap = priority_queue<T, vector<T>, greater<T>>;
 template <typename T>
 using maxheap = priority_queue<T>;
 
+int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
+
 void mmain() {
+    int n, k;
+    scanf("%d%d", &n, &k);
+    int g = 0;
+    for (int i = 0; i < n; ++i) {
+        int a;
+        scanf("%d", &a);
+        a %= k;
+        a = gcd(a, k);
+        g = gcd(a, g);
+    }
+    g = gcd(g, k);
+    if (g == 0) {
+        // Can this even happen?
+        printf("1\n0\n");
+        return;
+    }
+    DEBUG("g = %d\n", g);
+    printf("%d\n", k % g == 0 ? k / g : k / g + 1);
+    // a * g >= k, a >= k/g
+    for (int x = 0; x < k; x += g) {
+        printf("%d ", x);
+    }
     // Reread the problem statement!
     // Check base cases! Does it work for n = 1?
     // Check for integer overflow! Are you using int instead of ll?
